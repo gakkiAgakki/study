@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xmlns="http://java.sun.com/xml/ns/javaee"
+		 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+		 id="WebApp_ID" version="2.5">
+
+	<servlet>
+		<servlet-name>leaveMessageServlet</servlet-name>
+		<servlet-class>cn.haokeweiye.servlet.LeaveMessageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>leaveMessageServlet</servlet-name>
+		<url-pattern>/leaveMessageServlet</url-pattern>
+	</servlet-mapping>
+	<welcome-file-list>
+		<welcome-file>categoryServlet</welcome-file>
+	</welcome-file-list>
+
+	<servlet>
+		<description></description>
+		<display-name>management</display-name>
+		<servlet-name>management</servlet-name>
+		<servlet-class>cn.haokeweiye.servlet.ManagementServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>management</servlet-name>
+		<url-pattern>/management</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<description></description>
+		<display-name>delMsg</display-name>
+		<servlet-name>delMsg</servlet-name>
+		<servlet-class>cn.haokeweiye.servlet.DelMsg</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>delMsg</servlet-name>
+		<url-pattern>/delMsg</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<description></description>
+		<display-name>modify</display-name>
+		<servlet-name>modify</servlet-name>
+		<servlet-class>cn.haokeweiye.servlet.ModifyMsg</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>modify</servlet-name>
+		<url-pattern>/modify</url-pattern>
+	</servlet-mapping>
+
+
+
+	<servlet>
+		<description></description>
+		<display-name>modifyPro</display-name>
+		<servlet-name>modifyPro</servlet-name>
+		<servlet-class>cn.haokeweiye.servlet.ModifyMsg2</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>modifyPro</servlet-name>
+		<url-pattern>/modifyPro</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<description></description>
+		<display-name>delMsgs</display-name>
+		<servlet-name>delMsgs</servlet-name>
+		<servlet-class>cn.haokeweiye.servlet.DelMsgs</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>delMsgs</servlet-name>
+		<url-pattern>/delMsgs</url-pattern>
+	</servlet-mapping>
+
+
+
+	<servlet>
+		<description></description>
+		<display-name>createUser</display-name>
+		<servlet-name>createUser</servlet-name>
+		<servlet-class>cn.haokeweiye.servlet.CreateUser</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>createUser</servlet-name>
+		<url-pattern>/createUser</url-pattern>
+	</servlet-mapping>
+
+
+
+</web-app>

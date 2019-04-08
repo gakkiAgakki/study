@@ -1,0 +1,159 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: HASEE
+  Date: 2019/4/4
+  Time: 13:55
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>修改留言</title>
+    <!-- Bootstrap core CSS -->
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+
+        function findUser() {
+            location.href = "${pageContext.request.contextPath}/findUser";
+        }
+        function creatUser() {
+            location.href = "createUser.jsp";
+        }
+        function management() {
+            location.href="${pageContext.request.contextPath}/management";
+        }
+    </script>
+
+        <style type="text/css">
+        .modify{
+            position: absolute;
+            left: 350px;
+            top: 0px;
+        }
+    </style>
+
+</head>
+<body onload="changeTextarea()">
+    <div class="modify row">
+            <div class="col-xs-2 col-md-1" >
+                <div style="z-index: 9999; position: fixed ! important; left: 0px; top: 0;">
+                    <div style="height: 200px"></div>
+                    <div class="row" style="height: 100px">
+                        <div class="col-xs-8 col-sm-6 col-xs-offset-3">
+                            <input  class="btn btn-info" type="submit" value="查看用户" onclick="findUser()">
+                        </div>
+                    </div>
+                    <div class="row" style="height: 100px">
+                        <div class="col-xs-8 col-sm-6 col-xs-offset-3">
+                            <input  class="btn btn-info" type="submit" value="创建用户" onclick="creatUser()">
+                        </div>
+                    </div>
+                    <div class="row" style="height: 100px">
+                        <div class="col-xs-8 col-sm-6 col-xs-offset-3">
+                            <input  class="btn btn-info" type="submit" value="查看留言" onclick="management()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-10 col-md-10">
+
+                    <h2>留言修改</h2>
+                <form class="form-signin" id="modifyMSG" action="modifyPro" method="post">
+                    <%--<h2 class="form-signin-heading">留言板</h2>--%>
+                    <table width="100%"  class="table table-striped table-bordered">
+                        <%--隐藏域放入被修改的留言ID--%>
+                        <input type="hidden" name="id" value="${message.id }" />
+                        <tr>
+                            <td style="width: 150px">留言标题</td>
+                            <td>
+                                <label for="title" class="sr-only">留言标题</label>
+                                <input style="width: 300px;height: 40px" id="title" type="text" value="${message.title }" name="title" class="form-control" placeholder="留言标题" required autofocus>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>姓名</td>
+                            <td>
+                                <label for="name" class="sr-only">姓名</label>
+                                <input style="width: 300px;height: 40px" id="name" type="text" value="${message.name }" name="name" class="form-control" placeholder="姓名" required autofocus>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>电话</td>
+                            <td>
+                                <label for="telephone" class="sr-only">电话</label>
+                                <input style="width: 300px;height: 40px" id="telephone" type="text" value="${message.telephone }" name="telephone" class="form-control" placeholder="电话" required autofocus>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>邮箱</td>
+                            <td>
+                                <label for="mail" class="sr-only">邮箱</label>
+                                <input style="width: 300px;height: 40px" id="mail" type="text" value="${message.mail }" name="mail" class="form-control" placeholder="邮箱" required autofocus>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>单位</td>
+                            <td>
+                                <label for="unit" class="sr-only">单位</label>
+                                <input style="width: 300px;height: 40px" id="unit" type="text" value="${message.unit }" name="unit" class="form-control" placeholder="单位" required autofocus>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>地址</td>
+                            <td>
+                                <label for="site" class="sr-only">地址</label>
+                                <input style="width: 300px;height: 40px" id="theSite" type="hidden" value="${message.site }" class="form-control" placeholder="地址" required autofocus>
+                                <textarea id="site" name="site" rows="4" type="text" cols="5"  class="form-control" placeholder="地址" required autofocus></textarea>
+                            </td>
+                        </tr>
+                            <script type="text/javascript">
+                                function changeTextarea() {
+                                    document.getElementById("content").value=document.getElementById("theText").value;
+                                    document.getElementById("site").value=document.getElementById("theSite").value;
+                                }
+                            </script>
+                        <tr>
+                            <td>内容</td>
+                            <td>
+                                <label for="content" class="sr-only">内容</label>
+                                <input style="width: 600px;height: 100px" type="hidden" id="theText" value="${message.content }" class="form-control" placeholder="内容" required autofocus>
+                                <textarea id="content" name="content" rows="10" type="text" cols="80"  class="form-control" placeholder="内容" required autofocus></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>附件名</td>
+                            <td>
+                                <label for="accessory" class="sr-only">附件名</label>
+                                <input disabled style="width: 300px;height: 40px" id="accessory" type="text" value="${message.accessory }" name="accessory" class="form-control" placeholder="附件名" required autofocus>
+                            </td>
+                        </tr>
+                            <%--<tr>--%>
+                                <%--<td>--%>
+                                    <%--<input type="submit" style="height: 40px;width: 100px" class="btn btn-info" value="修改留言">--%>
+
+                                <%--</td>--%>
+                            <%--</tr>--%>
+                    </table>
+                </form>
+                    <script type="text/javascript">
+                        function modifyMsg() {
+                            document.getElementById("modifyMSG").submit();
+                        }
+                    </script>
+                <input type="submit" style="height: 40px;width: 100px" class="btn btn-info" onclick="modifyMsg()" value="修改留言">
+
+            </div>
+    </div>
+</body>
+</html>
