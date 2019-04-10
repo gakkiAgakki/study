@@ -28,14 +28,18 @@
     <style type="text/css">
         .login{
             position: absolute;
-            left: 600px;
-            top: 200px;
+            left: 880px;
+            top: 240px;
+        }
+        body{
+            background-image: url(img/bj.png);
+            background-size:cover;
         }
     </style>
 
 </head>
 
-<body background="img/gakki.jpg">
+<body background="img/bj.png">
     <div class="login">
         <form class="form-signin" id="form1" action="loginServlet" method="post">
             <%--<h2 class="form-signin-heading">留言板</h2>--%>

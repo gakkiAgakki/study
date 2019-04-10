@@ -134,4 +134,25 @@ public class MessageDao extends SQLException {
         return count;
     }
 
+    public void replyMsg(Message ms) throws SQLException {
+        QueryRunner queryRunner = new QueryRunner(C3p0Utils.getDataSource());
+        String sql = "UPDATE messagess SET reply = ?,replier = ?,state = ? WHERE id=?";
+        Object[] params = {ms.getReply(),ms.getReplier(),ms.getState(),ms.getid()};
+        queryRunner.update(sql,params);
+    }
+
+    public void replyState(Message ms) throws SQLException{
+        QueryRunner queryRunner = new QueryRunner(C3p0Utils.getDataSource());
+        String sql = "UPDATE messagess SET state = ? WHERE id = ?";
+        Object[] params = {ms.getState(),ms.getid()};
+        queryRunner.update(sql,params);
+    }
+
+    public Message getState(String id) throws SQLException{
+        QueryRunner queryRunner = new QueryRunner(C3p0Utils.getDataSource());
+        String sql = "SELECT m.state FROM messagess m WHERE m.id = ?";
+        Object[] params = {id};
+        return queryRunner.query(sql,new BeanHandler<Message>(Message.class),params);
+
+    }
 }

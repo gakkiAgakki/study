@@ -42,6 +42,7 @@ function checkForm() {
         // var reg =/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
         var reg =/(\S)+[@]{1}(\S)+[.]{1}(\w)+/;
         var bool = reg.test(document.getElementById("mail").value);
+        // document.getElementsByClassName("carousel")
         if (bool == false) {
             alert("邮箱格式错误，请重新输入！");
             return false;

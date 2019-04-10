@@ -129,4 +129,11 @@ public class UserDao {
         }
         queryRunner.batch(sql,params);
     }
+
+    public void modifyNotPwd(User user1) throws SQLException{
+        QueryRunner queryRunner = new QueryRunner(C3p0Utils.getDataSource());
+        String sql = "UPDATE user SET userName=?,keyword=?,description=?,level=? WHERE id = ?";
+        Object[] params = {user1.getUserName(),user1.getKeyword(),user1.getDescription(),user1.getLevel(),user1.getId()};
+        queryRunner.update(sql,params);
+    }
 }

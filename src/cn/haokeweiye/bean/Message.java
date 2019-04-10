@@ -24,6 +24,9 @@ public class Message implements Serializable {
 	private String content;
 	private String category;
 	private String accessory;
+	private String reply;
+	private String replier;
+	private String state;
 
 	public int getid() {
 		return id;
@@ -105,6 +108,30 @@ public class Message implements Serializable {
 		this.accessory = accessory;
 	}
 
+	public String getReply() {
+		return reply;
+	}
+
+	public void setReply(String reply) {
+		this.reply = reply;
+	}
+
+	public String getReplier() {
+		return replier;
+	}
+
+	public void setReplier(String replier) {
+		this.replier = replier;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
 	@Override
 	public String toString() {
 		return "Message{" +
@@ -118,6 +145,9 @@ public class Message implements Serializable {
 				", content='" + content + '\'' +
 				", category='" + category + '\'' +
 				", accessory='" + accessory + '\'' +
+				", reply='" + reply + '\'' +
+				", replier='" + replier + '\'' +
+				", state='" + state + '\'' +
 				'}';
 	}
 
@@ -137,7 +167,10 @@ public class Message implements Serializable {
 		if (site != null ? !site.equals(message.site) : message.site != null) return false;
 		if (content != null ? !content.equals(message.content) : message.content != null) return false;
 		if (category != null ? !category.equals(message.category) : message.category != null) return false;
-		return accessory != null ? accessory.equals(message.accessory) : message.accessory == null;
+		if (accessory != null ? !accessory.equals(message.accessory) : message.accessory != null) return false;
+		if (reply != null ? !reply.equals(message.reply) : message.reply != null) return false;
+		if (replier != null ? !replier.equals(message.replier) : message.replier != null) return false;
+		return state != null ? state.equals(message.state) : message.state == null;
 	}
 
 	@Override
@@ -152,6 +185,9 @@ public class Message implements Serializable {
 		result = 31 * result + (content != null ? content.hashCode() : 0);
 		result = 31 * result + (category != null ? category.hashCode() : 0);
 		result = 31 * result + (accessory != null ? accessory.hashCode() : 0);
+		result = 31 * result + (reply != null ? reply.hashCode() : 0);
+		result = 31 * result + (replier != null ? replier.hashCode() : 0);
+		result = 31 * result + (state != null ? state.hashCode() : 0);
 		return result;
 	}
 }

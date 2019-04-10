@@ -2,55 +2,68 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>首页</title>
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.bxslider.js"></script>
+	<title>首页</title>
+	<link href="css/jquery.bxslider.css" rel="stylesheet" type="text/css">
+	<style>
+		p{ width:100%; height:40px; font-size:20px; color:#333; line-height:40px; text-align:center;}
+	</style>
+	<style type="text/css">
 
-	<script type="text/javascript">
-
-	</script>
-
-<link rel="stylesheet" type="text/css" href="css/style.css" />
-
-
+		body{
+			background-image: url(img/beijingtu.jpg);
+			background-size:auto;
+		}
+	</style>
 </head>
-<body>
-
-<div id="banner">
-	<%--<div id="carousel">--%>
-		<%--<a href="categoryServlet?category=1" charset="utf-8"><img src="img/1.png"></a>--%>
-		<%--<a href="categoryServlet?category=2" charset="utf-8"><img src="img/2.png" ></a>--%>
-		<%--<a href="categoryServlet?category=3" charset="utf-8"><img src="img/3.png" ></a>--%>
-		<%--<a href="categoryServlet?category=4" charset="utf-8"><img src="img/4.png" ></a>--%>
-		<%--<a href="categoryServlet?category=5" charset="utf-8"><img src="img/5.png" ></a>--%>
-		<%--<a href="categoryServlet?category=6" charset="utf-8"><img src="img/6.png"></a>--%>
-		<%--<a href="categoryServlet?category=7" charset="utf-8"><img src="img/7.png" ></a>--%>
-		<%--<a href="categoryServlet?category=8" charset="utf-8"><img src="img/8.png" ></a>--%>
-		<%--<a href="categoryServlet?category=9" charset="utf-8"><img src="img/9.png" ></a>--%>
-	<%--</div>--%>
-		<div id="carousel">
-			<img src="img/1.png" data-url="${pageContext.request.contextPath}/categoryServlet?category=1">
-			<img src="img/2.png" data-url="${pageContext.request.contextPath}/categoryServlet?category=2">
-			<img src="img/3.png" data-url="${pageContext.request.contextPath}/categoryServlet?category=3">
-			<img src="img/4.png" data-url="${pageContext.request.contextPath}/categoryServlet?category=4">
-			<img src="img/5.png" data-url="${pageContext.request.contextPath}/categoryServlet?category=5">
-			<img src="img/6.png" data-url="${pageContext.request.contextPath}/categoryServlet?category=6">
-			<img src="img/7.png" data-url="${pageContext.request.contextPath}/categoryServlet?category=7">
-			<img src="img/8.png" data-url="${pageContext.request.contextPath}/categoryServlet?category=8">
-			<img src="img/9.png" data-url="${pageContext.request.contextPath}/categoryServlet?category=9">
+<body background="img/beijingtu.jpg">
+<div>
+		<%--<div style="text-align: center">--%>
+			<%--<img src="img/pingtai.png">--%>
+		<%--</div>--%>
+			<div style="height: 150px"></div>
+		<div class="slider1">
+			<div  class="slide">
+				<a href="${pageContext.request.contextPath}/categoryServlet?category=1"><img style="width: 300px;height: 225px" src="img/1.png"></a>
+			</div>
+			<div  class="slide">
+				<a href="${pageContext.request.contextPath}/categoryServlet?category=2"><img style="width: 300px;height: 225px" src="img/2.png"></a>
+			</div>
+			<div  class="slide">
+				<a href="${pageContext.request.contextPath}/categoryServlet?category=3"><img style="width: 300px;height: 225px" src="img/3.png"></a>
+			</div>
+			<div  class="slide">
+				<a href="${pageContext.request.contextPath}/categoryServlet?category=4"><img style="width: 300px;height: 225px" src="img/4.png"></a>
+			</div>
+			<div  class="slide">
+				<a href="${pageContext.request.contextPath}/categoryServlet?category=5"><img style="width: 300px;height: 225px" src="img/5.png"></a>
+			</div>
+			<div  class="slide">
+				<a href="${pageContext.request.contextPath}/categoryServlet?category=6"><img style="width: 300px;height: 225px" src="img/6.png"></a>
+			</div>
+			<div  class="slide">
+				<a href="${pageContext.request.contextPath}/categoryServlet?category=7"><img style="width: 300px;height: 225px" src="img/7.png"></a>
+			</div>
+			<div  class="slide">
+				<a href="${pageContext.request.contextPath}/categoryServlet?category=8"><img style="width: 300px;height: 225px" src="img/8.png"></a>
+			</div>
+			<div  class="slide">
+				<a href="${pageContext.request.contextPath}/categoryServlet?category=9"><img style="width: 300px;height: 225px" src="img/9.png"></a>
+			</div>
 		</div>
-</div>
 
-<script src="js/jquery-1.8.3.js" type="text/javascript" charset="utf-8"></script>
-<script src="js/slider.js" type="text/javascript" charset="utf-8"></script>
-<script>
-	$(function() {
-		$('#carousel').carousel({
-			curDisplay: 0, //默认索引
-			autoPlay: false, //是否自动播放
-			interval: 3000 //间隔时间
-		});
-	});
-</script>
-<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
 </div>
+		<script type="text/javascript">
+            $(document).ready(function(){
+                $('.slider1').bxSlider({
+                    slideWidth: 300,
+                    slideHeight: 500,
+                    minSlides: 2,
+                    maxSlides: 3,
+                    slideMargin: 10
+                });
+            });
+		</script>
 </body>
 </html>

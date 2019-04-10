@@ -71,102 +71,107 @@
 
 </head>
 <body>
-<div class="modify row">
-    <div class="col-xs-2 col-md-1" >
-        <div style="z-index: 9999; position: fixed ! important; left: 0px; top: 0;">
-            <div style="height: 200px"></div>
-            <div class="row" style="height: 100px">
+<div style="width: 1000px;height: 200px;text-align: center">
+    <img src="img/pingtai.png">
+</div>
+<div class="row" style="width: 1400px">
+    <div class="col-xs-3 col-md-2" style="width: 220px" >
+        <%--<div style="z-index: 9999; position: fixed ! important; left: 0px; top: 0;">--%>
+            <%--<div style="height: 200px"></div>--%>
+            <div class="row" style="height: 80px">
                 <div class="col-xs-8 col-sm-6 col-xs-offset-3">
-                    <input  class="btn btn-info" type="submit" value="查看用户" onclick="findUser()">
+                    <input  class="btn btn-primary btn-lg" type="submit" style="width: 120px" value="查看用户" onclick="findUser()">
+                </div>
+            </div>
+            <div class="row" style="height: 80px">
+                <div class="col-xs-8 col-sm-6 col-xs-offset-3">
+                    <input  class="btn btn-primary btn-lg" type="submit" style="width: 120px" value="创建用户" onclick="creatUser()">
+                </div>
+            </div>
+            <div class="row" style="height: 80px">
+                <div class="col-xs-8 col-sm-6 col-xs-offset-3">
+                    <input  class="btn btn-primary btn-lg" type="submit" style="width: 120px" value="查看留言" onclick="management()">
                 </div>
             </div>
             <div class="row" style="height: 100px">
                 <div class="col-xs-8 col-sm-6 col-xs-offset-3">
-                    <input  class="btn btn-info" type="submit" value="创建用户" onclick="creatUser()">
+                    <input  class="btn btn-primary" style="width: 120px;height: 40px" type="button" value="删除选中用户" onclick="delUsers()">
                 </div>
             </div>
-            <div class="row" style="height: 100px">
-                <div class="col-xs-8 col-sm-6 col-xs-offset-3">
-                    <input  class="btn btn-info" type="submit" value="查看留言" onclick="management()">
-                </div>
-            </div>
-            <div class="row" style="height: 100px">
-                <div class="col-xs-8 col-sm-6 col-xs-offset-3">
-                    <input  class="btn btn-primary btn-xs" type="button" value="删除选中用户" onclick="delUsers()">
-                </div>
-            </div>
-        </div>
+        <%--</div>--%>
     </div>
     <div class="col-xs-10 col-md-10">
 
         <h2>用户查询</h2>
             <%--<h2 class="form-signin-heading">留言板</h2>--%>
-        <table style="width: 1300px;position: absolute" class="table table-striped table-bordered">
-            <%--<tr>--%>
-            <%--<th align="right">--%>
-            <%--&lt;%&ndash;<input type="button" value="保存" onclick="toSave()"/>&ndash;%&gt;--%>
-            <%--<input class="btn btn-primary btn-xs" type="button" value="删除留言" onclick="delMsgs()"/>--%>
-            <%--</th>--%>
-            <%--</tr>--%>
-            <tr>
-                <th width="1%">选择</th>
-                <th width="2%">id</th>
-                <th width="3%">用户名</th>
-                <th width="2%">密码</th>
-                <th width="4%">关键字</th>
-                <th width="7%">描述</th>
-                <th width="6%" >等级</th>
-                <%--&lt;%&ndash;下拉框，该条留言所属类别&ndash;%&gt;--%>
-                <%--<script type="text/javascript">--%>
-                    <%--function findByCate() {--%>
-                        <%--var options=$("#category option:selected").val(); //获取选中的项--%>
-                        <%--window.location.href="findByCateServlet?category="+options;--%>
-                    <%--}--%>
-                <%--</script>--%>
-                <%--<th width="8%">--%>
-                    <%--<select class="form-control" id="category" name="category" onchange="findByCate()">--%>
-                        <%--<option value="0">请选择留言所属分类</option>--%>
-                        <%--<option value="10">查看全部</option>--%>
-                        <%--<option value="1">科技项目申报</option>--%>
-                        <%--<option value="2">科技成果转化</option>--%>
-                        <%--<option value="3">高新技术企业认定</option>--%>
-                        <%--<option value="4">技术中心/重点实验室</option>--%>
-                        <%--<option value="5">专精特新申报</option>--%>
-                        <%--<option value="6">技术改造申报</option>--%>
-                        <%--<option value="7">知识产权服务</option>--%>
-                        <%--<option value="8">入区申请</option>--%>
-                        <%--<option value="9">其他服务</option>--%>
-                    <%--</select>--%>
+        <div style="overflow: auto; width: 1290px;">
+            <table style="text-align: center;width: 1300px;position: absolute" class="table table-striped table-bordered">
+                <%--<tr>--%>
+                <%--<th align="right">--%>
+                <%--&lt;%&ndash;<input type="button" value="保存" onclick="toSave()"/>&ndash;%&gt;--%>
+                <%--<input class="btn btn-primary btn-xs" type="button" value="删除留言" onclick="delMsgs()"/>--%>
                 <%--</th>--%>
-                <th>操作</th>
-            </tr>
-
-            <c:forEach var="user" items="${userList}" >
+                <%--</tr>--%>
                 <tr>
-                    <td><input class="checkbox" type="checkbox" name="id" value="${user.id }" /></td>
-                    <td>${user.id }</td>
-                    <td>${user.userName }</td>
-                    <td>${user.password }</td>
-                    <td>${user.keyword }</td>
-                    <td>${user.description }</td>
-
-                    <td>
-                        <select  class="form-control" name="level" >
-                            <option value="0" ${user.level == '0' ? 'selected' : ''}>0(管理员最高权限)</option>
-                            <option value="1" ${user.level == '1' ? 'selected' : ''}>1(第二级可以操作留言，无法操作用户)</option>
-                            <option value="2" ${user.level == '2' ? 'selected' : ''}>2(第三级只能查看留言)</option>
-                        </select>
-                    </td>
-
-                    <td width="5%">
-                        <a href="${pageContext.request.contextPath}/modifyUser?id=${user.id}">修改此用户</a>
-                        <br/>
-                        <a href="${pageContext.request.contextPath}/delUser?id=${user.id}" onclick="return del()" >删除此用户</a>
-                    </td>
-
+                    <td width="1%"><b>选择</b></td>
+                    <td width="2%"><b>id</b></td>
+                    <td width="3%"><b>用户名</b></td>
+                    <td width="2%"><b>密码</b></td>
+                    <td width="4%"><b>关键字</b></td>
+                    <td width="7%"><b>描述</b></td>
+                    <td width="6%" ><b>等级</b></td>
+                    <%--&lt;%&ndash;下拉框，该条留言所属类别&ndash;%&gt;--%>
+                    <%--<script type="text/javascript">--%>
+                        <%--function findByCate() {--%>
+                            <%--var options=$("#category option:selected").val(); //获取选中的项--%>
+                            <%--window.location.href="findByCateServlet?category="+options;--%>
+                        <%--}--%>
+                    <%--</script>--%>
+                    <%--<th width="8%">--%>
+                        <%--<select class="form-control" id="category" name="category" onchange="findByCate()">--%>
+                            <%--<option value="0">请选择留言所属分类</option>--%>
+                            <%--<option value="10">查看全部</option>--%>
+                            <%--<option value="1">科技项目申报</option>--%>
+                            <%--<option value="2">科技成果转化</option>--%>
+                            <%--<option value="3">高新技术企业认定</option>--%>
+                            <%--<option value="4">技术中心/重点实验室</option>--%>
+                            <%--<option value="5">专精特新申报</option>--%>
+                            <%--<option value="6">技术改造申报</option>--%>
+                            <%--<option value="7">知识产权服务</option>--%>
+                            <%--<option value="8">入区申请</option>--%>
+                            <%--<option value="9">其他服务</option>--%>
+                        <%--</select>--%>
+                    <%--</th>--%>
+                    <td><b>操作</b></td>
                 </tr>
-            </c:forEach>
-        </table>
+
+                <c:forEach var="user" items="${userList}" >
+                    <tr>
+                        <td><input class="checkbox" type="checkbox" name="id" value="${user.id }" /></td>
+                        <td>${user.id }</td>
+                        <td>${user.userName }</td>
+                        <td>${user.password }</td>
+                        <td>${user.keyword }</td>
+                        <td>${user.description }</td>
+
+                        <td>
+                            <select  class="form-control" name="level" >
+                                <option value="0" ${user.level == '0' ? 'selected' : ''}>管理员最高权限</option>
+                                <option value="1" ${user.level == '1' ? 'selected' : ''}>可以修改回复审核留言</option>
+                                <option value="2" ${user.level == '2' ? 'selected' : ''}>可查看回复留言</option>
+                            </select>
+                        </td>
+
+                        <td width="5%">
+                            <a href="${pageContext.request.contextPath}/modifyUser?id=${user.id}">修改此用户</a>
+                            <br/>
+                            <a href="${pageContext.request.contextPath}/delUser?id=${user.id}" onclick="return del()" >删除此用户</a>
+                        </td>
+
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
     </div>
 </div>
 </body>

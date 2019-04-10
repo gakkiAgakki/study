@@ -35,59 +35,62 @@
         }
     </script>
 
-    <style type="text/css">
-        .modify{
-            position: absolute;
-            left: 400px;
-            top: 100px;
-        }
-    </style>
+    <%--<style type="text/css">--%>
+        <%--.modify{--%>
+            <%--position: absolute;--%>
+            <%--left: 400px;--%>
+            <%--top: 100px;--%>
+        <%--}--%>
+    <%--</style>--%>
 
 </head>
 <body>
-<div class="modify row">
-    <div class="col-xs-2 col-md-1" >
-        <div style="z-index: 9999; position: fixed ! important; left: 0px; top: 0;">
-            <div style="height: 200px"></div>
-            <div class="row" style="height: 100px">
+<div style="width: 1000px;height: 200px;text-align: center">
+    <img src="img/pingtai.png">
+</div>
+<div class="row" style="width: 1400px">
+    <div class="col-xs-3 col-md-2" style="width: 220px" >
+        <%--<div style="z-index: 9999; position: fixed ! important; left: 0px; top: 0;">--%>
+            <%--<div style="height: 200px"></div>--%>
+            <div class="row" style="height: 80px">
                 <div class="col-xs-8 col-sm-6 col-xs-offset-3">
-                    <input  class="btn btn-info" type="submit" value="查看用户" onclick="findUser()">
+                    <input  class="btn btn-primary btn-lg" type="submit" style="width: 120px" value="查看用户" onclick="findUser()">
+                </div>
+            </div>
+            <div class="row" style="height: 80px">
+                <div class="col-xs-8 col-sm-6 col-xs-offset-3">
+                    <input  class="btn btn-primary btn-lg" type="submit" style="width: 120px" value="创建用户" onclick="creatUser()">
+                </div>
+            </div>
+            <div class="row" style="height: 80px">
+                <div class="col-xs-8 col-sm-6 col-xs-offset-3">
+                    <input  class="btn btn-primary btn-lg" type="submit" style="width: 120px" value="查看留言" onclick="management()">
                 </div>
             </div>
             <div class="row" style="height: 100px">
                 <div class="col-xs-8 col-sm-6 col-xs-offset-3">
-                    <input  class="btn btn-info" type="submit" value="创建用户" onclick="creatUser()">
+                    <%--<input  class="btn btn-primary btn-xs" type="button" value="删除选中留言" onclick="delMsgs()">--%>
                 </div>
             </div>
-            <div class="row" style="height: 100px">
-                <div class="col-xs-8 col-sm-6 col-xs-offset-3">
-                    <input  class="btn btn-info" type="submit" value="查看留言" onclick="management()">
-                </div>
-            </div>
-            <div class="row" style="height: 100px">
-                <div class="col-xs-8 col-sm-6 col-xs-offset-3">
-                    <input  class="btn btn-primary btn-xs" type="button" value="删除选中留言" onclick="delMsgs()">
-                </div>
-            </div>
-        </div>
+        <%--</div>--%>
     </div>
     <div class="col-xs-10 col-md-10">
 
         <h2>修改用户信息</h2>
         <form class="form-signin" id="modifyUser" action="modifyUser2" method="post">
             <%--<h2 class="form-signin-heading">留言板</h2>--%>
-            <table width="100%"  class="table table-striped table-bordered">
+            <table  style="width: 800px;text-align: center"  class="table table-striped table-bordered">
                 <%--隐藏域放入被修改的留言ID--%>
                 <input type="hidden" name="id" value="${user.id }" />
                 <tr>
-                    <td>姓名</td>
+                    <td width="30%">姓名</td>
                     <td>
                         <label for="userName" class="sr-only">姓名</label>
                         <input style="width: 300px;height: 40px" id="userName" type="text" value="${user.userName }" name="userName" class="form-control" placeholder="姓名" required autofocus>
                     </td>
                 </tr>
                 <tr>
-                    <td>密码(此为加密后的，可直接修改)</td>
+                    <td>密码<br>(此为加密后的，可直接修改)</td>
                     <td>
                         <label for="password" class="sr-only">姓名</label>
                         <input style="width: 300px;height: 40px" id="password" type="text" value="${user.password }" name="password" class="form-control" placeholder="密码" required autofocus>
@@ -112,9 +115,9 @@
                     <td>
                         <%--level的下拉框--%>
                         <select class="form-control" name="level" >
-                            <option value="0" ${user.level == '0' ? 'selected' : ''}>0(管理员最高权限)</option>
-                            <option value="1" ${user.level == '1' ? 'selected' : ''}>1(第二级可以操作留言，无法操作用户)</option>
-                            <option value="2" ${user.level == '2' ? 'selected' : ''}>2(第三级只能查看留言)</option>
+                            <option value="0" ${user.level == '0' ? 'selected' : ''}>管理员最高权限</option>
+                            <option value="1" ${user.level == '1' ? 'selected' : ''}>可以修改回复审核留言</option>
+                            <option value="2" ${user.level == '2' ? 'selected' : ''}>可查看回复留言</option>
                         </select>
                     </td>
                 </tr>

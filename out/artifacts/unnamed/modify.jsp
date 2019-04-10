@@ -35,43 +35,46 @@
         }
     </script>
 
-        <style type="text/css">
-        .modify{
-            position: absolute;
-            left: 350px;
-            top: 0px;
-        }
-    </style>
+        <%--<style type="text/css">--%>
+        <%--.modify{--%>
+            <%--position: absolute;--%>
+            <%--left: 350px;--%>
+            <%--top: 0px;--%>
+        <%--}--%>
+    <%--</style>--%>
 
 </head>
 <body onload="changeTextarea()">
-    <div class="modify row">
-            <div class="col-xs-2 col-md-1" >
-                <div style="z-index: 9999; position: fixed ! important; left: 0px; top: 0;">
-                    <div style="height: 200px"></div>
-                    <div class="row" style="height: 100px">
+<div style="width: 1000px;height: 200px;text-align: center">
+    <img src="img/pingtai.png">
+</div>
+    <div class="row" style="width: 1400px">
+            <div class="col-xs-3 col-md-2" style="width: 220px">
+                <%--<div style="z-index: 9999; position: fixed ! important; left: 0px; top: 0;">--%>
+                    <%--<div style="height: 200px"></div>--%>
+                    <div class="row" style="height: 80px">
                         <div class="col-xs-8 col-sm-6 col-xs-offset-3">
-                            <input  class="btn btn-info" type="submit" value="查看用户" onclick="findUser()">
+                            <input  class="btn btn-primary btn-lg" type="submit" style="width: 120px" value="查看用户" onclick="findUser()">
                         </div>
                     </div>
-                    <div class="row" style="height: 100px">
+                    <div class="row" style="height: 80px">
                         <div class="col-xs-8 col-sm-6 col-xs-offset-3">
-                            <input  class="btn btn-info" type="submit" value="创建用户" onclick="creatUser()">
+                            <input  class="btn btn-primary btn-lg" type="submit" style="width: 120px" value="创建用户" onclick="creatUser()">
                         </div>
                     </div>
-                    <div class="row" style="height: 100px">
+                    <div class="row" style="height: 80px">
                         <div class="col-xs-8 col-sm-6 col-xs-offset-3">
-                            <input  class="btn btn-info" type="submit" value="查看留言" onclick="management()">
+                            <input  class="btn btn-primary btn-lg" type="submit" style="width: 120px" value="查看留言" onclick="management()">
                         </div>
                     </div>
-                </div>
+                <%--</div>--%>
             </div>
             <div class="col-xs-10 col-md-10">
 
                     <h2>留言修改</h2>
                 <form class="form-signin" id="modifyMSG" action="modifyPro" method="post">
                     <%--<h2 class="form-signin-heading">留言板</h2>--%>
-                    <table width="100%"  class="table table-striped table-bordered">
+                    <table style="text-align: center" width="100%"  class="table table-striped table-bordered">
                         <%--隐藏域放入被修改的留言ID--%>
                         <input type="hidden" name="id" value="${message.id }" />
                         <tr>

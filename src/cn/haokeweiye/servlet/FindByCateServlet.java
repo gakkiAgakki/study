@@ -13,6 +13,7 @@ import java.sql.SQLException;
 
 /**
  * 根据category查询留言属于哪一部分的
+ * 并进行分页
  * Created by HASEE on 2019/4/1.
  */
 @WebServlet("/findByCateServlet")

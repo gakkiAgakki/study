@@ -31,7 +31,8 @@ public class ModifyUser2 extends HttpServlet {
             request.getRequestDispatcher("/message.jsp").forward(request, response);
             return;
         }
-
+        UserDao userDao = new UserDao();
+        User user1 = new User();
 //        int id = Integer.parseInt(request.getParameter("id"));
         String id = request.getParameter("id");
         String userName = request.getParameter("userName");
@@ -40,11 +41,34 @@ public class ModifyUser2 extends HttpServlet {
         String description = request.getParameter("description");
         String level = request.getParameter("level");
 
-        Mademd5 mademd5 = new Mademd5();
-        String psw=mademd5.toMd5(password);
-        User user1 = new User();
 
         int i = Integer.parseInt(id);
+        //判断密码是否被修改
+        //根据ID获取密码
+        try {
+            User byId = userDao.findById(i);
+            String password1 = byId.getPassword();
+            if (password1.equals(password)){
+                //执行修改其他字段
+                user1.setId(i);
+                user1.setUserName(userName);
+                user1.setKeyword(keyword);
+                user1.setDescription(description);
+                user1.setLevel(Integer.parseInt(level));
+
+                userDao.modifyNotPwd(user1);
+                response.sendRedirect("findUser");
+                return;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        Mademd5 mademd5 = new Mademd5();
+        String psw=mademd5.toMd5(password);
+
+
+
         user1.setId(i);
         user1.setUserName(userName);
         user1.setPassword(psw);
@@ -52,7 +76,7 @@ public class ModifyUser2 extends HttpServlet {
         user1.setDescription(description);
         user1.setLevel(Integer.parseInt(level));
 
-        UserDao userDao = new UserDao();
+
         try {
             userDao.modifyUser(user1);
             response.sendRedirect("findUser");
